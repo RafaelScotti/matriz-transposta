@@ -41,11 +41,26 @@ public class Reader {
         return this.content.length();
     }
 
-    public int getLinesSize() {
+    public int getLineSize() {
         return (int)Math.sqrt(getSize());
     }
 
-        
+    public String[][] getMatrix() {
+        String matrix[][] = new String[getLineSize()][getLineSize()];
+
+		int lin = 0;
+		int col = 0;
+		for(int i = 0; i < getSize(); i++) {
+			String content = getContent();
+			matrix[lin][col] = Character.toString(content.charAt(i));
+			col++;
+			if(col%getLineSize()==0){
+				lin++;
+				col = 0;
+			}
+        }
+        return matrix;
+    }    
 
 }
 
