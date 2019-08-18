@@ -22,7 +22,7 @@ public class Reader {
                 sb.append(line);
                 //sb.append(System.lineSeparator());
                 line = br.readLine();
-                this.size++;
+                //this.size++;
             }
             this.content = sb.toString();
             br.close();
@@ -34,17 +34,15 @@ public class Reader {
     }
 
     public String getContent() {
-        
         return this.content;
     }
 
     public int getSize() {
-        
-        return this.size*this.size;
+        return this.content.length();
     }
 
     public int getLinesSize() {
-        return this.size;
+        return (int)Math.sqrt(getSize());
     }
 
         

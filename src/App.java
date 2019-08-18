@@ -2,8 +2,9 @@ import java.io.*;
 public class App {
 	public static void main(String[] args) throws IOException{
 		
-		Writer writer = new Writer("matriz_t.txt");
-		Reader reader = new Reader("file.txt");
+		String fileName = "matriz.txt";
+		String nextFileName = "matriz_transposta.txt";
+		Reader reader = new Reader(fileName);
 
 		String matriz[][] = new String[reader.getLinesSize()][reader.getLinesSize()];
 
@@ -15,7 +16,7 @@ public class App {
 			matriz[lin][col] = Character.toString(x.charAt(i));
 			System.out.println(matriz[lin][col]);
 			col++;
-			if(col%4==0){
+			if(col%reader.getLinesSize()==0){
 				lin++;
 				col = 0;
 				System.out.println("==");
@@ -23,15 +24,28 @@ public class App {
 		}
 
 		System.out.println(reader.getSize());
+		System.out.println(reader.getLinesSize());
 		System.out.println(reader.getContent());
 
-		for(int i = 0; i<matriz.length; i++) {
-			for(int j= 0; j < matriz.length; j++ ) {
-				System.out.println(matriz[j][i]); // adicionar no lccol;
-				writer.write(matriz[j][i]);
+
+		try{
+			BufferedWriter buffWrite = new BufferedWriter(new FileWriter(nextFileName));
+			for(int i = 0; i<matriz.length; i++) {
+				for(int j= 0; j < matriz.length; j++ ) {
+					//System.out.println(matriz[j][i]); // adicionar no lccol;
+					buffWrite.append(matriz[j][i]);
+				}
+				buffWrite.append("\n");
 			}
-			writer.write("\n");
-		}
+            //buffWrite.append(s);
+            //buffWrite.append("\n");
+            buffWrite.close();
+        }catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+		
 
 
 	}
