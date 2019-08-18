@@ -7,7 +7,6 @@ import java.io.IOException;
 public class Reader {
 
     private String fileName = "";
-    private int size = 0;
     private String content = "";
 
     public Reader(String fileName) {
@@ -22,9 +21,9 @@ public class Reader {
                 sb.append(line);
                 //sb.append(System.lineSeparator());
                 line = br.readLine();
-                //this.size++;
             }
             this.content = sb.toString();
+            
             br.close();
         } catch(FileNotFoundException e) {
             System.out.println(e.getMessage());
