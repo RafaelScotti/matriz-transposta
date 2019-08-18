@@ -6,14 +6,13 @@ import java.io.IOException;
 
 public class Reader {
 
-    private String fileName;
+    private String fileName = "";
+    private int size = 0;
+    private String content = "";
 
     public Reader(String fileName) {
         this.fileName = fileName;
-    }
-
-    public String toString() {
-        String text = "";
+        
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileName));
             StringBuilder sb = new StringBuilder();
@@ -23,19 +22,30 @@ public class Reader {
                 sb.append(line);
                 //sb.append(System.lineSeparator());
                 line = br.readLine();
+                this.size++;
             }
-            text = sb.toString();
+            this.content = sb.toString();
             br.close();
         } catch(FileNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
 		}
-		
-        return text;
     }
 
-    
+    public String getContent() {
+        
+        return this.content;
+    }
+
+    public int getSize() {
+        
+        return this.size*this.size;
+    }
+
+    public int getLinesSize() {
+        return this.size;
+    }
 
         
 
