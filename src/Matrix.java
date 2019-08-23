@@ -49,7 +49,7 @@ public class Matrix {
     // }
 
     public boolean isSquare() {
-        
+        // TODO
         return true;
     }
 
