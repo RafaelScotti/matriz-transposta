@@ -43,44 +43,20 @@ public class Reader {
         };
     }
 
-    // public int getSize() {
-    //     return this.content.length();
-    // }
-
-    // public int getLineSize() {
-    //     return (int)Math.sqrt(getSize());
-    // }
-
-    // public String[][] toMatrixOld() {
-    //     String matrix[][] = new String[this.content.length()][this.content.get(0).length()];
-
-	// 	int lin = 0;
-	// 	int col = 0;
-	// 	for(int i = 0; i < this.getSize(); i++) {
-	// 		String content = getContent();
-	// 		matrix[lin][col] = Character.toString(content.charAt(i));
-	// 		col++;
-	// 		if(col%getLineSize()==0){
-	// 			lin++;
-	// 			col = 0;
-	// 		}
-    //     }
-    //     return matrix;
-    // }    
-
-    // public String[][] toMatrix() {
+    public String[][] toMatrix() {
         
-    //     int linSize = this.content.length();
-    //     int colSize = getTheBiggestLine();
-    //     String matrix[][] = new String[linSize][colSize];
+        int linSize = this.content.size();
+        int colSize = getTheBiggestLine();
+        String matrix[][] = new String[linSize][colSize];
         
-    //     for(int i = 0; i < linSize; i++) {
-    //         for(int j = 0; j < colSize; j++) {
-    //             matrix[i][j] = 
-    //         }
-    //     }
-
-    // }
+        for(int i = 0; i < linSize; i++) {
+            String aux = content.get(i);
+            for(int j = 0; j < colSize; j++) {
+                matrix[i][j] = Character.toString(aux.charAt(j));
+            }
+        }
+        return matrix;
+    }
 
     public int getTheBiggestLine() {
         int size = 0;
@@ -92,23 +68,19 @@ public class Reader {
         return size;
     }
 
+    // TODO
     public void makeSquare() {
         int linSize = this.content.size();
         int colSize = getTheBiggestLine();
         System.out.println(linSize + "  "+ colSize);
 
         for(int i = 0; i < linSize; i++) {
-            String x = this.content.get(i).toString();
-            System.out.println(x);
-                
-            if(x.length() < 10) {
-                x = "AAA";
-            }
-            
-            this.content.add(i, x);
-            
-            
-               
+            String aux = this.content.get(i).toString();
+            String complete = "";
+            //System.out.println(aux.length());
+            //System.out.println(content.get(i).length());
+            //this.content.add(i, aux+complete);
+            //System.out.println(aux);    
         }
     }
 
