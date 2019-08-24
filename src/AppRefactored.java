@@ -7,20 +7,15 @@ public class AppRefactored {
             {"d", "e", "f"},
             {"g", "h", "i"}
         };
-        Matrix matrix = new Matrix(squareMatrix);
-
+        Writer writer = new Writer();
         Reader reader = new Reader("matriz.txt");
+        Matrix matrix = new Matrix(reader.toMatrix());
 
-        reader.print();
+        writer.writeIn("teste.txt", matrix.transpose());
 
-        reader.makeSquare();
-
-        System.out.println("\n");
-
-        //reader.print();
 
         //matrix.print();
-        //matrix.print(matrix.transpose());
+        matrix.print(matrix.transpose());
         //matrix.transpose();
     
     }
