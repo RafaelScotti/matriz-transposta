@@ -14,7 +14,8 @@ public class App {
         writer.writeIn("matriz_transposta.txt", matrix.transpose());
 
 
-        //matrix.print();
+        matrix.print();
+        System.out.println("\n\n");
         matrix.print(matrix.transpose());
         //matrix.transpose();
     
