@@ -8,6 +8,10 @@ public class Matrix {
         this.lineCount = matrix.length;
     }
 
+    public String[][] getMatrix() {
+        return this.matrix;
+    }
+
     public void print() {
         for(int i = 0; i < this.lineCount; i++) {
             for(int j = 0; j < this.matrix[i].length; j++) {
