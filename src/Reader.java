@@ -84,6 +84,10 @@ public class Reader {
         }
     }
 
+    public boolean isEmpty(){
+        return content.isEmpty();
+    }
+
 
 }
 
