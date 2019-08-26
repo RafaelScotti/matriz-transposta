@@ -7,22 +7,34 @@ public class App {
         //     {"g", "h", "i"}
         // };
         
-        // Writer writer = new Writer();
-        // Reader reader = new Reader("matriz.txt");
-        // Matrix matrix = new Matrix(reader.toMatrix());
 
-        // writer.writeIn("matriz_transposta.txt", matrix.transpose());
+        String originalFile = "original.txt";
+        String old = "old.txt";
+        String gen = "gen.txt";
 
-
-        // matrix.print();
-        // System.out.println("\n\n");
-        // matrix.print(matrix.transpose());
-        // //matrix.transpose();
-
-        Menu menu = new Menu();
-
-        menu.show();
+        Writer writer = new Writer();
+        Reader original = new Reader(originalFile);
+        writer.writeIn(gen, original.toMatrix());
         
+        Reader reader = new Reader(gen);
+        Matrix matrix = new Matrix(reader.toMatrix());
+
+        // init files
+
+
+        
+
+        // to make the transpose
+        writer.writeIn(old, reader.toMatrix());
+        writer.writeIn(gen, matrix.changeValue("A", "Z"));
+
+
+        //matrix.print();
+        //System.out.println("\n\n");
+        //matrix.print(matrix.transpose());
+        //matrix.transpose();
+        Menu menu = new Menu();
+        menu.show();
     
     }
 }
