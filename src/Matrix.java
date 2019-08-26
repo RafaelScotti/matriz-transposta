@@ -48,9 +48,9 @@ public class Matrix {
         
     }
 
-    // public String[][] changePositionValue(int lin, int col) {
-    //     return this.matrix;
-    // }
+    public String[][] changePositionValue(int lin, int col) {
+        return this.matrix;
+    }
 
     public boolean isSquare() {
         // TODO
