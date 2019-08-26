@@ -7,16 +7,31 @@ public class App {
             {"g", "h", "i"}
         };
         
+
+        String originalFile = "original.txt";
+        String old = "old.txt";
+        String gen = "gen.txt";
+
         Writer writer = new Writer();
-        Reader reader = new Reader("matriz.txt");
+        Reader original = new Reader(originalFile);
+        writer.writeIn(gen, original.toMatrix());
+        
+        Reader reader = new Reader(gen);
         Matrix matrix = new Matrix(reader.toMatrix());
 
-        writer.writeIn("matriz_transposta.txt", matrix.transpose());
+        // init files
 
 
-        matrix.print();
-        System.out.println("\n\n");
-        matrix.print(matrix.transpose());
+        
+
+        // to make the transpose
+        writer.writeIn(old, reader.toMatrix());
+        writer.writeIn(gen, matrix.changeValue("A", "Z"));
+
+
+        //matrix.print();
+        //System.out.println("\n\n");
+        //matrix.print(matrix.transpose());
         //matrix.transpose();
     
     }
