@@ -1,23 +1,28 @@
 public class App {
     public static void main(String[] args) {        
         
-        String squareMatrix[][] = {
-            {"a", "b", "c"},
-            {"d", "e", "f"},
-            {"g", "h", "i"}
-        };
+        // String squareMatrix[][] = {
+        //     {"a", "b", "c"},
+        //     {"d", "e", "f"},
+        //     {"g", "h", "i"}
+        // };
         
-        Writer writer = new Writer();
-        Reader reader = new Reader("matriz.txt");
-        Matrix matrix = new Matrix(reader.toMatrix());
+        // Writer writer = new Writer();
+        // Reader reader = new Reader("matriz.txt");
+        // Matrix matrix = new Matrix(reader.toMatrix());
 
-        writer.writeIn("matriz_transposta.txt", matrix.transpose());
+        // writer.writeIn("matriz_transposta.txt", matrix.transpose());
 
 
-        matrix.print();
-        System.out.println("\n\n");
-        matrix.print(matrix.transpose());
-        //matrix.transpose();
+        // matrix.print();
+        // System.out.println("\n\n");
+        // matrix.print(matrix.transpose());
+        // //matrix.transpose();
+
+        Menu menu = new Menu();
+
+        menu.show();
+        
     
     }
 }
