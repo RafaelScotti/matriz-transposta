@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Menu {
-
+    Scanner scanner = new Scanner(System.in);
     String originalFile = "original.txt";
     String old = "old.txt";
     String gen = "gen.txt";
@@ -15,20 +15,17 @@ public class Menu {
             //System.out.println("a");
             writer.writeIn(gen, original.toMatrix());
             reader = new Reader(gen);
-        }        
-        
-        
+        }         
         matrix = new Matrix(reader.toMatrix());
     }
     
-
     // String squareMatrix[][] = {
         //     {"a", "b", "c"},
         //     {"d", "e", "f"},
         //     {"g", "h", "i"}
         // };
 
-    Scanner scanner = new Scanner(System.in);
+    
 
 
     
@@ -55,16 +52,20 @@ public class Menu {
         
     }
     private void action(int chose) {
+        reader = new Reader(gen);
+        matrix = new Matrix(reader.toMatrix());
+
         switch (chose) {
             case 1:
                 matrix.print();
                 break;
-            case 2:
-                writer.writeIn(old, new Reader(gen).toMatrix());
+            case 2:              
+                writer.writeIn(old, matrix.getMatrix());
                 writer.writeIn(gen, matrix.transpose());
                 break;
             case 3:
-                // TODO
+                writer.writeIn(old, matrix.getMatrix());
+                writer.writeIn(gen, matrix.changeValue("A", "Z"));
                 break;
             case 4:
                 // TODO
