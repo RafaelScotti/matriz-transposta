@@ -2,9 +2,25 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private final String originMatrixFileName = "matriz.txt";
-    private final String modifiedMatrixFileName = "matriz_modificada.txt"
-    private final String generatedMatrixFileName = "matriz_gerada.txt";
+    String originalFile = "original.txt";
+    String old = "old.txt";
+    String gen = "gen.txt";
+    Writer writer = new Writer();
+    Reader original = new Reader(originalFile);
+    Reader reader;
+    Matrix matrix;
+    public Menu() {
+        Reader reader = new Reader(gen);
+        if(reader.isEmpty()){
+            //System.out.println("a");
+            writer.writeIn(gen, original.toMatrix());
+            reader = new Reader(gen);
+        }        
+        
+        
+        matrix = new Matrix(reader.toMatrix());
+    }
+    
 
     // String squareMatrix[][] = {
         //     {"a", "b", "c"},
@@ -13,9 +29,7 @@ public class Menu {
         // };
 
     Scanner scanner = new Scanner(System.in);
-    Writer writer = new Writer();
-    Reader reader = new Reader(originMatrixFileName);
-    Matrix matrix = new Matrix(reader.toMatrix());
+
 
     
 
@@ -46,8 +60,8 @@ public class Menu {
                 matrix.print();
                 break;
             case 2:
-                writer.writeIn(generatedMatrixFileName, matrix.transpose());
-                matrix.print(new Reader(modifiedMatrixFileName).toMatrix());
+                writer.writeIn(old, new Reader(gen).toMatrix());
+                writer.writeIn(gen, matrix.transpose());
                 break;
             case 3:
                 // TODO
