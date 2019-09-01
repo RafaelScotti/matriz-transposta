@@ -48,9 +48,21 @@ public class Matrix {
         
     }
 
-    // public String[][] changePositionValue(int lin, int col) {
-    //     return this.matrix;
-    // }
+    public String[][] changeValue(String  oldValue, String newValue) {
+        String auxMatrix[][] = new String[lineCount][lineCount];
+        for(int i = 0; i < this.lineCount; i++) {
+            for(int j = 0; j < this.matrix[i].length; j++) {
+                String aux = this.matrix[i][j];
+                if(aux.equals(oldValue)){
+                    aux = newValue;
+                }
+                auxMatrix[i][j] = aux;
+                
+            }
+            //System.out.print(System.lineSeparator());
+        }
+        return auxMatrix;
+    }
 
     public boolean isSquare() {
         // TODO
