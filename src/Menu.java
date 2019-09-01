@@ -25,11 +25,6 @@ public class Menu {
         //     {"g", "h", "i"}
         // };
 
-    
-
-
-    
-
     public void show() {
         
         int option = 0;
@@ -64,8 +59,20 @@ public class Menu {
                 writer.writeIn(gen, matrix.transpose());
                 break;
             case 3:
+                String oldLetter = "";
+                String newLetter = "";
+                System.out.println("Enter the letter you would like to change ");
+                System.out.print("> ");
+                oldLetter = scanner.nextLine();
+
+                System.out.println("Enter the new letter ");
+                System.out.print("> ");
+                newLetter = scanner.nextLine();
+
+                System.out.println("\nChanging all the letters "+oldLetter+" to "+newLetter+" ... \nDone!\n");
+
                 writer.writeIn(old, matrix.getMatrix());
-                writer.writeIn(gen, matrix.changeValue("A", "Z"));
+                writer.writeIn(gen, matrix.changeValue(oldLetter, newLetter));
                 break;
             case 4:
                 // TODO
@@ -74,4 +81,6 @@ public class Menu {
                 break;
         }
     }
+
+
 }
